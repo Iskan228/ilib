@@ -4,6 +4,7 @@
     #include "icstd.h"
 
     #if IS_C99
+        #include <stdbool.h>
         #include <stdint.h>
 
         typedef uint_least8_t u8;
@@ -153,6 +154,16 @@
                 #warning No u64 and i64!
             #endif
         #endif
+        #ifdef bool
+            #undef bool
+        #endif
+        #ifdef true
+            #undef true
+        #endif
+        #ifdef false
+            #undef false
+        #endif
+        typedef enum e_bool {false, true} bool;
     #endif
 
     typedef unsigned short ushort;
